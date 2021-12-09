@@ -15,7 +15,7 @@ app.get('/etterem', (req, res) => {
     var connection = mysql.createConnection({
       host: 's1.siralycore.hu',
       user: 'asztalfoglalas',
-      password: 'istvan',
+      password: 'istván',
       database: 'asztalfoglalas'
     })
     

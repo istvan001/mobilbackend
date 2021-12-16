@@ -78,7 +78,6 @@ app.get('/etterem_abc_csok', (req, res) => {
     console.log(rows)
     res.send(rows)
   })
-  
   connection.end()
   
 
@@ -95,8 +94,8 @@ app.get('/etterem_ert', (req, res) => {
   })
   
   connection.connect()
-  
-  connection.query('SELECT ROUND(AVG(ertekeles.ert),1) FROM ertekeles INNER JOIN etterem ON etterem.id=ertekeles.etterem_id GROUP BY etterem.nev', function (err, rows, fields) {
+  let sz='SELECT ROUND(AVG(ertekeles.ert),1) AS "atlag" FROM ertekeles INNER JOIN etterem ON etterem.id=ertekeles.etterem_id GROUP BY etterem.nev'
+  connection.query(sz, function (err, rows, fields) {
     if (err) throw err
   
     console.log(rows)
@@ -105,7 +104,6 @@ app.get('/etterem_ert', (req, res) => {
   
   connection.end()
   
-
 })
 
 
